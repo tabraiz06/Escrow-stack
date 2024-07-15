@@ -49,8 +49,6 @@ const Main = () => {
   ];
 
   let accountHolders = data.filter((ele) => ele.companyName === companyName);
-  console.log(accountName);
-  console.log(companyName);
 
   return (
     <div className="main">
