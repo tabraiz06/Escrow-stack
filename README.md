@@ -1,14 +1,13 @@
-# React + Vite
+# commmands to start the project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1 install the project
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-  # commmands to start the project
-  ## 1 git clone "repo url"
+git clone "https://github.com/tabraiz06/Escrow-stack-assigment-1.git"
 
 ## 2 npm install
 
-## 3 npm run dev to start the project
+to install the all packeges
+
+## 3 npm run dev
+
+to start the project
