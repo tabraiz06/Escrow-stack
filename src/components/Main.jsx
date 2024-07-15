@@ -126,9 +126,7 @@ const Main = () => {
               })
               .filter((ele) => {
                 if (accountName !== "") {
-                  if (ele.accountName === accountName) {
-                    return ele;
-                  }
+                  return ele.accountName.includes(accountName);
                 } else {
                   return ele;
                 }
