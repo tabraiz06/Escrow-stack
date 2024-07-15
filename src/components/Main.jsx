@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import cashImg from "../assets/cashImg.png";
 import cashstack from "../assets/cash-stack.png";
 
@@ -58,11 +58,10 @@ const Main = () => {
             <select
               name="companyName"
               id="companyName"
-              onChange={(e) =>
-                !companyName
-                  ? setCompanyName(e.target.value)
-                  : [setAccountName(""), setCompanyName(e.target.value)]
-              }
+              onChange={(e) => [
+                setAccountName(""),
+                setCompanyName(e.target.value),
+              ]}
             >
               <option value="">Company Name</option>
               <option value="TCS">TCS</option>
@@ -71,22 +70,19 @@ const Main = () => {
             <select
               name="accountName"
               id="accountName"
-              onChange={(e) =>
-                companyName ? setAccountName(e.target.value) : ""
-              }
+              onChange={(e) => setAccountName(e.target.value)}
             >
               <option value="">Account Name</option>
-              {accountHolders &&
-                accountHolders.map((ele, index) => {
-                  return (
-                    <option
-                      key={index}
-                      value={accountHolders ? ele.accountName : ""}
-                    >
-                      {ele.accountName}
-                    </option>
-                  );
-                })}
+              {accountHolders.map((ele, index) => {
+                return (
+                  <option
+                    key={index}
+                    value={accountHolders ? ele.accountName : ""}
+                  >
+                    {ele.accountName}
+                  </option>
+                );
+              })}
             </select>
           </div>
         </div>
