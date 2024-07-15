@@ -16,6 +16,15 @@ const Main = () => {
       utrNo: "1000000",
       acNo: "AC0CF7RRUY407QHU",
     },
+    {
+      companyName: "TCS",
+      accountName: "Rashid",
+      date: "07/05/2024 01:04 PM",
+      credit: "₹ 21,337",
+      acBalance: "₹ 21,337",
+      utrNo: "1000000",
+      acNo: "AC0CF7RRUY407QHU",
+    },
 
     {
       companyName: "TCS",
@@ -75,10 +84,7 @@ const Main = () => {
               <option value="">Account Name</option>
               {accountHolders.map((ele, index) => {
                 return (
-                  <option
-                    key={index}
-                    value={accountHolders ? ele.accountName : ""}
-                  >
+                  <option key={index} value={ele.accountName}>
                     {ele.accountName}
                   </option>
                 );
