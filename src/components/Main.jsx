@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import cashImg from "../assets/cashImg.png";
 import cashstack from "../assets/cash-stack.png";
-import ArrowDropDown from "../assets/ArrowDropDown.png";
+
 const Main = () => {
   const [companyName, setCompanyName] = useState("");
   const [accountName, setAccountName] = useState("");
@@ -16,33 +16,17 @@ const Main = () => {
       utrNo: "1000000",
       acNo: "AC0CF7RRUY407QHU",
     },
+
     {
       companyName: "TCS",
-      accountName: "Tabraiz",
-      date: "04/05/2024 12:38 PM",
-      credit: "₹ 21,337",
-      acBalance: "₹ 21,337",
-      utrNo: "CMS4136431811",
-      acNo: "0104SLNEFTPL",
-    },
-    {
-      companyName: "TCS",
-      accountName: "Tabraiz",
+      accountName: "Santosh",
       date: "28/03/2024 05:09 PM",
-      credit: "₹ 21,337",
+      credit: "₹ 25,337",
       acBalance: "₹ 21,337",
       utrNo: "CMS4019645011",
       acNo: "ACT861VM9RR67Z5C",
     },
-    {
-      companyName: "IBM",
-      accountName: "Mirza",
-      date: "28/03/2024 05:09 PM",
-      credit: "₹ 5,015.69",
-      acBalance: "₹ 5,015.69",
-      utrNo: "CMS3956666735",
-      acNo: "AC0CF7RRUY407QHU",
-    },
+
     {
       companyName: "IBM",
       accountName: "Mirza",
@@ -52,16 +36,21 @@ const Main = () => {
       utrNo: "CMS3948064984",
       acNo: "ACT861VM9RR67Z5C",
     },
+
     {
       companyName: "IBM",
-      accountName: "Mirza",
+      accountName: "Muhammad",
       date: "19/03/2024 11:33 PM",
-      credit: "₹ 16,000",
-      acBalance: "₹ 16,000",
+      credit: "₹ 20,000",
+      acBalance: "₹ 20,000",
       utrNo: "CMS3938564916",
       acNo: "AC0CF7RRUY407QHU",
     },
   ];
+
+  let accountHolders = data.filter((ele) => ele.companyName === companyName);
+  console.log(accountName);
+  console.log(companyName);
 
   return (
     <div className="main">
@@ -71,7 +60,11 @@ const Main = () => {
             <select
               name="companyName"
               id="companyName"
-              onChange={(e) => setCompanyName(e.target.value)}
+              onChange={(e) =>
+                !companyName
+                  ? setCompanyName(e.target.value)
+                  : [setAccountName(""), setCompanyName(e.target.value)]
+              }
             >
               <option value="">Company Name</option>
               <option value="TCS">TCS</option>
@@ -80,11 +73,22 @@ const Main = () => {
             <select
               name="accountName"
               id="accountName"
-              onChange={(e) => setAccountName(e.target.value)}
+              onChange={(e) =>
+                companyName ? setAccountName(e.target.value) : ""
+              }
             >
               <option value="">Account Name</option>
-              <option value="Tabraiz">Tabraiz</option>
-              <option value="Mirza">Mirza</option>
+              {accountHolders &&
+                accountHolders.map((ele, index) => {
+                  return (
+                    <option
+                      key={index}
+                      value={accountHolders ? ele.accountName : ""}
+                    >
+                      {ele.accountName}
+                    </option>
+                  );
+                })}
             </select>
           </div>
         </div>
